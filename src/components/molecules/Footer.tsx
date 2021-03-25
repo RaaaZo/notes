@@ -9,6 +9,10 @@ const Footer: React.FC = () => {
 };
 
 const FooterWrapper = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 3rem;
   display: flex;

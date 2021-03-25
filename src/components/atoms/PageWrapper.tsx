@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 export const PageWrapper = styled.div`
-  margin: 10rem 2rem;
+  min-height: calc(100vh - 15rem - 3rem - 10rem);
+  margin: 5rem 2rem 5rem 2rem;
 
-  @media screen and (min-width: 768px) {
-    margin: 15rem 3rem;
+  @media (min-width: 576px) {
+    padding-bottom: 10rem;
   }
 
-  @media screen and (min-width: 1024px) {
-    margin: 20rem 3rem;
+  @media screen and (min-width: 768px) {
+    min-height: calc(100vh - 15rem - 3rem - 20rem);
+    margin-top: 15rem;
   }
 `;

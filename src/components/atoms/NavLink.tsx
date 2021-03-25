@@ -1,3 +1,8 @@
+import {
+  IsLoggedContext,
+  IsLoggedContextInterface,
+} from 'context/IsLoggedContext';
+import { useContext } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,6 +13,12 @@ interface Props {
 }
 
 const NavLink: React.FC<Props> = ({ link, name, handleDrawer }) => {
+  const { isLogged } = useContext(IsLoggedContext) as IsLoggedContextInterface;
+
+  if (!isLogged && name === 'Profile') {
+    return null;
+  }
+
   return (
     <StyledLink onClick={handleDrawer} exact activeClassName='active' to={link}>
       {name}

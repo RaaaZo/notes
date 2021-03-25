@@ -8,7 +8,7 @@ const HomeWelcome = () => {
       <h1>MAKE YOUR NOTES HANDY</h1>
       <h3>YOUR NOTES</h3>
       <p>
-        Can simply increase the speed of making notes. And keep Your notes
+        can simply increase the speed of making notes. And keep Your notes
         always with You. That's end with forgetting your notebooks to school.
         Now You need only access to the Internet!
       </p>
@@ -19,6 +19,7 @@ const HomeWelcome = () => {
 
 const WelcomeWrapper = styled(motion.div)`
   width: 100%;
+  margin: 0 auto;
 
   h1 {
     font-size: 2.6rem;
@@ -51,8 +52,9 @@ const WelcomeWrapper = styled(motion.div)`
     }
   }
 
-  @media screen and (min-width: 1024px) {
-    max-width: 500px;
+  @media screen and (min-width: 650px) {
+    max-width: 650px;
+
     h1,
     h3 {
       margin-left: 3rem;
@@ -60,6 +62,25 @@ const WelcomeWrapper = styled(motion.div)`
 
     p {
       margin-left: 12rem;
+      margin-right: 3rem;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 500px;
+    margin: 0;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    h3 {
+      font-size: 6rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      margin-right: auto;
     }
   }
 `;

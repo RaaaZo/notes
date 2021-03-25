@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import NavDrawer from 'components/molecules/NavDrawer';
 import { useState } from 'react';
+import NavBackdropModal from 'components/atoms/NavBackdropModal';
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +19,7 @@ const NavBar: React.FC = () => {
         isMenuOpen={isOpen}
         handleDrawerVisibility={handleDrawerVisibility}
       />
+      <NavBackdropModal isMenuOpen={isOpen} />
 
       <NavWrapper>
         <Logo />

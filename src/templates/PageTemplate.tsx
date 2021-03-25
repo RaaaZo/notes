@@ -3,10 +3,10 @@ import Footer from 'components/molecules/Footer';
 
 const PageTemplate: React.FC = ({ children }) => {
   return (
-    <PageWrapper>
-      {children}
+    <>
+      <PageWrapper>{children}</PageWrapper>
       <Footer />
-    </PageWrapper>
+    </>
   );
 };
 

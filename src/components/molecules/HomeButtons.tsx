@@ -34,8 +34,13 @@ const ButtonsWrapper = styled(motion.div)`
     margin-left: 15rem;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 650px) {
     margin-left: 12rem;
+    margin-right: 3rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-right: auto;
   }
 `;
 

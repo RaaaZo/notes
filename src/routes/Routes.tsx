@@ -1,11 +1,17 @@
+import {
+  IsLoggedContext,
+  IsLoggedContextInterface,
+} from 'context/IsLoggedContext';
 import AboutPage from 'pages/AboutPage';
 import HomePage from 'pages/HomePage';
 import ProfilePage from 'pages/ProfilePage';
 import SignInPage from 'pages/SignInPage';
 import SignUpPage from 'pages/SignUpPage';
-import { Route, Switch } from 'react-router';
+import { useContext } from 'react';
+import { Redirect, Route, Switch } from 'react-router';
 
 const Routes: React.FC = () => {
+  const { isLogged } = useContext(IsLoggedContext) as IsLoggedContextInterface;
   return (
     <Switch>
       <Route exact path='/'>
@@ -15,13 +21,13 @@ const Routes: React.FC = () => {
         <AboutPage />
       </Route>
       <Route path='/sign-in'>
-        <SignInPage />
+        {isLogged ? <Redirect to='/' /> : <SignInPage />}
       </Route>
       <Route path='/sign-up'>
-        <SignUpPage />
+        {isLogged ? <Redirect to='/' /> : <SignUpPage />}
       </Route>
       <Route path='/profile'>
-        <ProfilePage />
+        {isLogged ? <ProfilePage /> : <Redirect to='/sign-in' />}
       </Route>
     </Switch>
   );

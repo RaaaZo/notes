@@ -19,8 +19,8 @@ export const IsLoggedContextProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      setToken(tokenInLocalStorage);
       setIsLogged(true);
+      setToken(tokenInLocalStorage);
     } else {
       setIsLogged(false);
     }

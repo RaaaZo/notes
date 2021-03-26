@@ -1,10 +1,10 @@
-import { PageWrapper } from 'components/atoms/PageWrapper';
+import PageTemplate from 'templates/PageTemplate';
 
 const AboutPage: React.FC = () => {
   return (
-    <PageWrapper>
+    <PageTemplate>
       <p>About</p>
-    </PageWrapper>
+    </PageTemplate>
   );
 };
 

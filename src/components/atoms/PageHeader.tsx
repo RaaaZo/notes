@@ -5,6 +5,7 @@ const PageHeader: React.FC = ({ children }) => {
 };
 
 const PageHeading = styled.h1`
+  width: 100%;
   text-align: center;
   margin-bottom: 1rem;
 

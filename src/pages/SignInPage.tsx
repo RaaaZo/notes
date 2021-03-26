@@ -2,7 +2,6 @@ import { useAuth } from 'auth/useAuth';
 import { StyledFormikForm } from 'components/atoms/StyledFormikForm';
 import FormikTextInput from 'components/molecules/FormikTextInput';
 import { Formik } from 'formik';
-import styled from 'styled-components';
 import PageTemplate from 'templates/PageTemplate';
 import * as Yup from 'yup';
 import Loader from 'components/atoms/Loader';

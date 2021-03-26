@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from 'routes/Routes';
 import NavigationTemplate from 'templates/NavigationTemplate';
 import { IsLoggedContextProvider } from 'context/IsLoggedContext';
+import { UserDataContextProvider } from 'context/UserDataContext';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <StylesTemplate>
         <IsLoggedContextProvider>
           <NavigationTemplate />
-          <Routes />
+          <UserDataContextProvider>
+            <Routes />
+          </UserDataContextProvider>
         </IsLoggedContextProvider>
       </StylesTemplate>
     </Router>

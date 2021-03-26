@@ -14,11 +14,12 @@ const HomeImage = () => {
 const ImageWrapper = styled(motion.div)`
   display: none;
   position: relative;
+  min-height: 700px;
 
   @media screen and (min-width: 1024px) {
-    display: block;
-    width: 410px;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       display: block;
@@ -31,7 +32,7 @@ const ImageWrapper = styled(motion.div)`
 const Circle = styled.div`
   position: absolute;
   top: 0;
-  right: -20rem;
+  right: -18rem;
   bottom: 0;
   width: 700px;
   height: 700px;

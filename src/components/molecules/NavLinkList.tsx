@@ -19,11 +19,11 @@ const NavLinkList: React.FC<Props> = ({ drawer, handleDrawer }) => {
     IsLoggedContext
   ) as IsLoggedContextInterface;
 
-  const { clearLocalStorageToken } = useAuth();
+  const { logoutUser } = useAuth();
 
   const handleSignOutButton = () => {
     setIsLogged(false);
-    clearLocalStorageToken();
+    logoutUser();
   };
 
   return (

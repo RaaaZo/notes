@@ -4,6 +4,7 @@ export interface IsLoggedContextInterface {
   isLogged: boolean;
   token: string | null;
   setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
+  setToken: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export const IsLoggedContext = createContext<IsLoggedContextInterface | null>(
@@ -25,7 +26,7 @@ export const IsLoggedContextProvider: React.FC = ({ children }) => {
     }
   }, [tokenInLocalStorage]);
 
-  const value = { isLogged, token, setIsLogged };
+  const value = { isLogged, token, setIsLogged, setToken };
 
   return (
     <IsLoggedContext.Provider value={value}>

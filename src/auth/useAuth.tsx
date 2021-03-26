@@ -6,7 +6,7 @@ import {
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 
-interface Response {
+interface AuthUserResponse {
   access_token: string;
 }
 
@@ -14,18 +14,42 @@ export const useAuth = () => {
   const { push } = useHistory();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const { setIsLogged } = useContext(
+  const { setIsLogged, setToken } = useContext(
     IsLoggedContext
   ) as IsLoggedContextInterface;
 
-  const clearLocalStorageToken = () => {
+  const logoutUser = () => {
     localStorage.removeItem('token');
+    setToken(null);
+  };
+
+  const registerUser = async (
+    username: string,
+    password: string,
+    confirmedPassword: string,
+    email: string
+  ) => {
+    setIsLoading(true);
+    try {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/user/register`, {
+        username,
+        password,
+        confirmedPassword,
+        email,
+      });
+      setError(null);
+      await authUser(email, password);
+      setIsLoading(false);
+    } catch (error) {
+      setError(error.response.data.message);
+      setIsLoading(false);
+    }
   };
 
   const authUser = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      const response = await axios.post<Response>(
+      const response = await axios.post<AuthUserResponse>(
         `${process.env.REACT_APP_API_BASE_URL}/user/login`,
         {
           email,
@@ -44,5 +68,5 @@ export const useAuth = () => {
     }
   };
 
-  return { isLoading, error, authUser, clearLocalStorageToken };
+  return { isLoading, error, authUser, logoutUser, registerUser };
 };

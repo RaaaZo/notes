@@ -5,16 +5,27 @@ interface Props {
   label: string;
   name: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
+  disabled?: boolean;
 }
 
-const FormikTextInput: React.FC<Props> = ({ label, ...props }) => {
+const FormikTextInput: React.FC<Props> = ({
+  label,
+  placeholder,
+  disabled,
+  ...props
+}) => {
   const [field, meta] = useField(props);
 
   return (
     <StyledFormItem>
       <label htmlFor={props.name}>{label}</label>
-      <input {...field} {...props} />
+      <input
+        disabled={disabled ? true : false}
+        placeholder={placeholder ? placeholder : undefined}
+        {...field}
+        {...props}
+      />
       {meta.touched && meta.error ? (
         <div className='error'>{meta.error}</div>
       ) : null}
@@ -45,6 +56,10 @@ const StyledFormItem = styled.div`
     border: 2px solid ${({ theme }) => theme.darkAccents};
     background-color: ${({ theme }) => theme.white};
     -moz-outline-radius: 15px;
+  }
+
+  input:disabled {
+    color: black;
   }
 
   .error {

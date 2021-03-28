@@ -30,13 +30,13 @@ const GlobalStyles = createGlobalStyle`
     html {
         scrollbar-width: thin;
         scrollbar-color: ${({ theme }) =>
-          `${theme.elementsBackground} ${theme.white}`};
+          `${theme.darkAccents} ${theme.white}`};
     }
     body::-webkit-scrollbar-track {
         background: ${({ theme }) => theme.white};
     }
     body::-webkit-scrollbar-thumb {
-        background-color: ${({ theme }) => theme.elementsBackground} ;
+        background-color: ${({ theme }) => theme.darkAccents} ;
         border-radius: 6px;
         border: 3px solid #fff;
     }

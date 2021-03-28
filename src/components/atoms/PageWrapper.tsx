@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 
 export const PageWrapper = styled.div<{ profile: boolean | undefined }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: calc(100vh - 15rem - 3rem - 10rem);
   margin: 5rem 2rem 5rem 2rem;
 
@@ -20,8 +23,7 @@ export const PageWrapper = styled.div<{ profile: boolean | undefined }>`
         margin: 15rem auto 5rem auto;
         max-width: 1360px;
         width: 95%;
-        display: flex;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
         justify-content: space-between;
       }
     `}

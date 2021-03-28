@@ -3,6 +3,8 @@ import {
   IsLoggedContextInterface,
 } from 'context/IsLoggedContext';
 import AboutPage from 'pages/AboutPage';
+import ChangeEmailPage from 'pages/ChangeEmailPage';
+import ChangeUsernamePage from 'pages/ChangeUsernamePage';
 import HomePage from 'pages/HomePage';
 import ProfilePage from 'pages/ProfilePage';
 import SignInPage from 'pages/SignInPage';
@@ -25,6 +27,12 @@ const Routes: React.FC = () => {
       </Route>
       <Route path='/sign-up'>
         {isLogged ? <Redirect to='/' /> : <SignUpPage />}
+      </Route>
+      <Route path='/profile/change-username'>
+        {isLogged ? <ChangeUsernamePage /> : <Redirect to='/sign-in' />}
+      </Route>
+      <Route path='/profile/change-email'>
+        {isLogged ? <ChangeEmailPage /> : <Redirect to='/sign-in' />}
       </Route>
       <Route path='/profile'>
         {isLogged ? <ProfilePage /> : <Redirect to='/sign-in' />}

@@ -46,7 +46,8 @@ const SignUpPage = () => {
             .required('Required'),
           username: Yup.string()
             .min(3, 'Must be 3 characters or more')
-            .max(20, 'Must be 20 characters or less'),
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
         })}
         onSubmit={async (values) => {
           const { confirmPassword, email, password, username } = values;
